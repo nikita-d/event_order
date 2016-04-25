@@ -14,7 +14,6 @@ let aboutModule = angular.module('about', [
       template: '<about></about>'
     });
 })
-
 .component('about', aboutComponent);
 
 export default aboutModule;

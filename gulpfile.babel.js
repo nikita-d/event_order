@@ -18,7 +18,6 @@ import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
 let root = 'client';
-
 // helper method for resolving paths
 let resolveToApp = (glob = '') => {
   return path.join(root, 'app', glob); // app/{glob}
