@@ -1,8 +1,8 @@
 {
   "name": "event_order",
-  "version": "0.0.1.2",
+  "version": "0.0.1",
   "description": "Event order example application",
-  "main": "index.js",
+  "main": "index.html",
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^0.2.15",
