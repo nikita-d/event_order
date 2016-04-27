@@ -46,9 +46,9 @@
     "webpack-hot-middleware": "^2.6.0",
     "yargs": "^3.9.0"
   },
-  {
-    "npm" : "=3.8.7",
-    "node" : "=5.5.0"
+  "engine": {
+    "npm": "=3.8.7",
+    "node": "=5.5.0"
   },
   "scripts": {
     "test": "karma start",
