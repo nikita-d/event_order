@@ -48,11 +48,11 @@
   },
   "engine": {
     "npm": "=3.8.7",
-    "node": "=5.5.0"
+    "node": "=5.1.1"
   },
   "scripts": {
     "test": "karma start",
-    "start": "npm install"
+    "install": "npm install && gulp webpack",
   },
   "keywords": [
     "angular",
