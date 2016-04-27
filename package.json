@@ -1,7 +1,7 @@
 {
-  "name": "ng6-starter",
+  "name": "event_order",
   "version": "0.0.1",
-  "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
+  "description": "Event order example application",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.0",
@@ -54,8 +54,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/NG6-starter.git"
+    "url": "https://github.com/nikita-d/event_order.git"
   },
-  "author": "AngularClass",
+  "author": "Nikita Dubrovin",
   "license": "Apache-2.0"
 }
