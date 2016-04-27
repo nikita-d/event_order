@@ -13,16 +13,22 @@ export default class Order {
 
 class OrderController {
   model: {};
+  form: {};
 
-  constructor($scope) {
+  constructor($scope, $location) {
     this.name = 'order';
     this.model = new Order();
+
     $scope['model'] = this.model;
   }
 
-  submitOrder() {
-    console.log('submitted');
-    console.log(this.model);
+  submitOrder(form) {
+      if(form.$valid) {
+          console.log('form valid: ' + form.$valid);
+          console.log(this.model);
+      } else {
+          console.log('form valid: ' + form.$valid);
+      }
   }
 }
 
