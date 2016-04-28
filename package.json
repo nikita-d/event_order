@@ -52,7 +52,8 @@
   },
   "scripts": {
     "test": "karma start",
-    "install": "npm install && gulp webpack"
+    "postinstall": "gulp webpack",
+    "start": "npm start"
   },
   "keywords": [
     "angular",
