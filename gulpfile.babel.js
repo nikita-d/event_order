@@ -12,8 +12,10 @@ import lodash   from 'lodash';
 import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
+import express  from 'express';
+import serveStatic from 'serve-static';
 import webpackDevMiddelware from 'webpack-dev-middleware';
-import webpachHotMiddelware from 'webpack-hot-middleware';
+import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
@@ -41,6 +43,8 @@ let paths = {
   dest: path.join(__dirname, 'dist')
 };
 
+let app = express();
+
 // use webpack.config.js to build modules
 gulp.task('webpack', ['clean'], (cb) => {
   const config = require('./webpack.dist.config');
@@ -59,6 +63,14 @@ gulp.task('webpack', ['clean'], (cb) => {
 
     cb();
   });
+});
+
+gulp.task('prodserve', ['webpack'], () => {
+  const port = process.env.PORT || 3000;
+
+  app.use(serveStatic(__dirname + "/dist"));
+  app.listen(port);
+  gutil.log("[prodserve] listening on port " + port);
 });
 
 gulp.task('serve', () => {
@@ -87,7 +99,7 @@ gulp.task('serve', () => {
         },
         publicPath: config.output.publicPath
       }),
-      webpachHotMiddelware(compiler)
+      webpackHotMiddelware(compiler)
     ]
   });
 });
