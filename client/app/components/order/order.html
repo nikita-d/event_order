@@ -42,25 +42,25 @@
               <span ng-show="(orderForm.$submitted && (contacts.$invalid || contacts.$pristine))">Заполните телефон, или email</span>
             </fieldset>
           </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-          <div class="form-group">
-            <label for="event_date">Дата: </label>
-            <input type="date" name="event_date" class="form-control"
-                   ng-model="vm.model.eventDate">
-          </div>
-          <div class="form-group">
-            <label for="person_count">Количество персон: </label>
-            <input type="number" name="person_count" class="form-control" min="10" max="1000"
-                   ng-model="vm.model.personCount">
-          </div>
-          <div class="form-group">
-            <label for="comment">Пожелания и комментарии: </label>
-            <textarea name="comment" class="form-control" ng-model="vm.model.comment">
-            </textarea>
-          </div>
-          <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Заказать">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+              <label for="event_date">Дата: </label>
+              <input type="date" name="event_date" class="form-control"
+                     ng-model="vm.model.eventDate">
+            </div>
+            <div class="form-group">
+              <label for="person_count">Количество персон: </label>
+              <input type="number" name="person_count" class="form-control" min="10" max="1000"
+                     ng-model="vm.model.personCount">
+            </div>
+            <div class="form-group">
+              <label for="comment">Пожелания и комментарии: </label>
+              <textarea name="comment" class="form-control" ng-model="vm.model.comment">
+              </textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Заказать">
+            </div>
           </div>
         </div>
     </div>
