@@ -1,58 +1,65 @@
 <navbar>
 </navbar>
 <section>
-  <h1>Заказать мероприятие</h1>
-  <form name="orderForm" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
-    <div class="form-group">
-      <label for="company_name">Название компании: </label>
-      <input type="text" name="company_name"
-             ng-model="model.companyName" ng-required="true">
-      <span ng-show="(orderForm.$submitted && orderForm.company_name.$error.required)">Заполните это поле</span>
+    <div ng-show="vm.completed === false">
+        <h1>Заказать мероприятие</h1>
+        <form name="orderForm" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
+            <div class="form-group">
+                <label for="company_name">Название компании: </label>
+                <input type="text" name="company_name"
+                       ng-model="vm.model.companyName"
+                       ng-required="true">
+                <span ng-show="(orderForm.$submitted && orderForm.company_name.$error.required)">Заполните это поле</span>
+            </div>
+            <div class="form-group">
+                <label for="contact_person">Контактное лицо: </label>
+                <input type="text" name="contact_person"
+                       ng-model="vm.model.contactPerson"
+                       ng-required="true">
+                <span ng-show="(orderForm.$submitted && orderForm.contact_person.$error.required)">Заполните это поле</span>
+            </div>
+            <fieldset ng-form="contacts">
+                <div class="form-group">
+                    <label for="phone">Телефон: </label>
+                    <input type="text" name="phone"
+                           ng-model="vm.model.contactPhone"
+                           ng-pattern="/^\+[0-9]+\s*\([0-9]+\)\s*[0-9][0-9\-]+$/"
+                           ng-required="!(contacts.email)">
+                    <span ng-show="(orderForm.$submitted && contacts.phone.$error.pattern)">Неправильный формат</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email"
+                           ng-model="vm.model.contactEmail"
+                           ng-required="!(contacts.phone)">
+                    <span ng-show="(orderForm.$submitted && contacts.email.$error.email)">Неправильный формат</span>
+                </div>
+                <span ng-show="(orderForm.$submitted && (contacts.$invalid || contacts.$pristine))">Заполните телефон, или email</span>
+            </fieldset>
+            <div class="form-group">
+                <label for="event_date">Дата: </label>
+                <input type="date" name="event_date"
+                       ng-model="vm.model.eventDate">
+            </div>
+            <div class="form-group">
+                <label for="person_count">Количество персон: </label>
+                <input type="number" name="person_count"
+                       ng-model="vm.model.personCount">
+            </div>
+            <div class="form-group">
+                <label for="comment">Пожелания и комментарии: </label>
+                <textarea name="comment"
+                          ng-model="vm.model.comment">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Заказать">
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-      <label for="contact_person">Контактное лицо: </label>
-      <input type="text" name="contact_person"
-             ng-model="model.contactPerson" ng-required="true">
-      <span ng-show="(orderForm.$submitted && orderForm.contact_person.$error.required)">Заполните это поле</span>
+    <div ng-show="vm.completed === true">
+        <h1>Отправлено</h1>
     </div>
-    <fieldset ng-form="contacts">
-      <div class="form-group">
-        <label for="phone">Телефон: </label>
-        <input type="text" name="phone"
-               ng-model="model.contactPhone"
-               ng-pattern="/^\+[0-9]+\s*\([0-9]+\)\s*[0-9][0-9\-]+$/"
-               ng-required="!(contacts.email)">
-        <span ng-show="(orderForm.$submitted && contacts.phone.$error.pattern)">Неправильный формат</span>
-      </div>
-      <div class="form-group">
-        <label for="email">Email: </label>
-        <input type="email" name="email"
-               ng-model="model.contactEmail"
-               ng-required="!(contacts.phone)">
-        <span ng-show="(orderForm.$submitted && contacts.email.$error.email)">Неправильный формат</span>
-      </div>
-      <span ng-show="(orderForm.$submitted && (contacts.$invalid || contacts.$pristine))">Заполните телефон, или email</span>
-    </fieldset>
-    <div class="form-group">
-      <label for="event_date">Дата: </label>
-      <input type="date" name="event_date"
-             ng-model="model.eventDate">
-    </div>
-    <div class="form-group">
-      <label for="person_count">Количество персон: </label>
-      <input type="number" name="person_count"
-             ng-model="model.personCount">
-    </div>
-    <div class="form-group">
-      <label for="comment">Пожелания и комментарии: </label>
-      <textarea name="comment"
-                ng-model="model.comment">
-      </textarea>
-    </div>
-    <div class="form-group">
-      <input type="submit" value="Заказать">
-    </div>
-  </form>
 </section>
 <footer>
 </footer>

@@ -1,37 +1,50 @@
-export default class Order {
-  companyName: '';
-  contactPerson: '';
-  contactEmail: '';
-  contactPhone: '';
-  eventDate: '';
-  personCount: 10;
+import OrderSender from './order.service';
 
-  constructor() {
-    this.eventDate = new Date();
-  }
+export default class Order {
+    companyName: '';
+    contactPerson: '';
+    contactEmail: '';
+    contactPhone: '';
+    eventDate: '';
+    personCount: 10;
+
+    constructor() {
+        this.eventDate = new Date();
+    }
 };
 
 class OrderController {
-  model: {};
-  form: {};
+    model: {};
+    form: {};
+    orderSender: {};
+    completed: false;
 
-  constructor($scope, $location) {
-    this.name = 'order';
-    this.model = new Order();
+    constructor($scope, orderSender) {
+        this.name = 'order';
+        this.model = new Order();
+        this.orderSender = orderSender;
+        this.completed = false;
+    }
 
-    $scope['model'] = this.model;
-  }
+    log_model() {
+        console.log(this.model);
+    }
 
-  submitOrder(form) {
-      if(form.$valid) {
-          console.log('form valid: ' + form.$valid);
-          console.log(this.model);
-      } else {
-          console.log('form valid: ' + form.$valid);
-      }
-  }
+    submitOrder(form) {
+        if(form.$valid) {
+            this.postOrder();
+        }
+    }
+
+    postOrder() {
+        let json = angular.toJson(this.model);
+        this.orderSender
+            .sendData(json)
+            .then(function(res) { log_model(); this.completed = true; },
+                  function(res) { console.log(res) });
+    }
 }
 
-OrderController.$inject = ['$scope', '$location'];
+OrderController.$inject = ['$scope', 'orderSender'];
 
 export default OrderController;

@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import orderComponent from './order.component';
+import postService from './order.service';
 
 let orderModule = angular
     .module('order', [ uiRouter ])
@@ -11,6 +12,7 @@ let orderModule = angular
             'template' : '<order></order>'
         });
     })
-    .component('order', orderComponent);
+    .component('order', orderComponent)
+    .service('orderSender', postService);
 
 export default orderModule;
