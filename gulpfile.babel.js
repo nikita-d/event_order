@@ -70,7 +70,7 @@ gulp.task('prodserve', ['webpack'], () => {
 
   app.use(serveStatic(__dirname + "/dist"));
   app.route('/*').get(function(req, res) {
-    return res.sendFile(path.join(__dirname, 'dist', 'index.html');
+    return res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });
   app.listen(port);
   gutil.log("[prodserve] listening on port " + port);
