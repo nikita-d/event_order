@@ -2,9 +2,10 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import orderComponent from './order.component';
 import postService from './order.service';
+import 'angular-ui-bootstrap';
 
 let orderModule = angular
-    .module('order', [ uiRouter ])
+        .module('order', [ 'ui.bootstrap', uiRouter ])
     .config(($stateProvider) => {
         "ngInject";
         $stateProvider.state('order', {
