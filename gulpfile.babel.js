@@ -69,6 +69,9 @@ gulp.task('prodserve', ['webpack'], () => {
   const port = process.env.PORT || 3000;
 
   app.use(serveStatic(__dirname + "/dist"));
+  app.route('/*').get(function(req, res) {
+    return res.sendFile(path.join(__dirname, 'dist', 'index.html');
+  });
   app.listen(port);
   gutil.log("[prodserve] listening on port " + port);
 });
