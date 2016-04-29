@@ -3,67 +3,69 @@
 <section>
   <div class="container" ng-show="vm.completed === false">
     <h1>Заказать мероприятие</h1>
-    <form name="orderForm" class="form-horizontal" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="company_name">Название компании: </label>
-            <input type="text" name="company_name" class="form-control"
-                   ng-model="vm.model.companyName"
-                   ng-required="true">
-            <span ng-show="(orderForm.$submitted && orderForm.company_name.$error.required)">Заполните это поле</span>
-          </div>
-          <div class="form-group">
-            <label for="contact_person">Контактное лицо: </label>
-            <input type="text" name="contact_person" class="form-control"
-                   ng-model="vm.model.contactPerson"
-                   ng-required="true">
-            <span ng-show="(orderForm.$submitted && orderForm.contact_person.$error.required)">Заполните это поле</span>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <fieldset ng-form="contacts">
+    <div class="container center-block">
+      <form name="orderForm" class="form-horizontal" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2">
             <div class="form-group">
-              <label for="phone">Телефон: </label>
-              <input type="text" name="phone" class="form-control"
-                     ng-model="vm.model.contactPhone"
-                     ng-pattern="/^\+[0-9]+\s*\([0-9]+\)\s*[0-9][0-9\-]+$/"
-                     ng-required="!(contacts.email)">
-              <span ng-show="(orderForm.$submitted && contacts.phone.$error.pattern)">Неправильный формат</span>
+              <label for="company_name">Название компании: </label>
+              <input type="text" name="company_name" class="form-control"
+                     ng-model="vm.model.companyName"
+                     ng-required="true">
+              <span ng-show="(orderForm.$submitted && orderForm.company_name.$error.required)">Заполните это поле</span>
             </div>
             <div class="form-group">
-              <label for="email">Email: </label>
-              <input type="email" name="email" class="form-control"
-                     ng-model="vm.model.contactEmail"
-                     ng-required="!(contacts.phone)">
-              <span ng-show="(orderForm.$submitted && contacts.email.$error.email)">Неправильный формат</span>
+              <label for="contact_person">Контактное лицо: </label>
+              <input type="text" name="contact_person" class="form-control"
+                     ng-model="vm.model.contactPerson"
+                     ng-required="true">
+              <span ng-show="(orderForm.$submitted && orderForm.contact_person.$error.required)">Заполните это поле</span>
             </div>
-            <span ng-show="(orderForm.$submitted && (contacts.$invalid || contacts.$pristine))">Заполните телефон, или email</span>
-          </fieldset>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-          <div class="form-group">
-            <label for="event_date">Дата: </label>
-            <input type="date" name="event_date" class="form-control"
-                   ng-model="vm.model.eventDate">
           </div>
-          <div class="form-group">
-            <label for="person_count">Количество персон: </label>
-            <input type="number" name="person_count" class="form-control" min="10" max="1000"
-                   ng-model="vm.model.personCount">
-          </div>
-          <div class="form-group">
-            <label for="comment">Пожелания и комментарии: </label>
-            <textarea name="comment" class="form-control" ng-model="vm.model.comment">
-            </textarea>
-          </div>
-          <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Заказать">
+          <div class="col-md-4">
+            <fieldset ng-form="contacts">
+              <div class="form-group">
+                <label for="phone">Телефон: </label>
+                <input type="text" name="phone" class="form-control"
+                       ng-model="vm.model.contactPhone"
+                       ng-pattern="/^\+[0-9]+\s*\([0-9]+\)\s*[0-9][0-9\-]+$/"
+                       ng-required="!(contacts.email)">
+                <span ng-show="(orderForm.$submitted && contacts.phone.$error.pattern)">Неправильный формат</span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="email" name="email" class="form-control"
+                       ng-model="vm.model.contactEmail"
+                       ng-required="!(contacts.phone)">
+                <span ng-show="(orderForm.$submitted && contacts.email.$error.email)">Неправильный формат</span>
+              </div>
+              <span ng-show="(orderForm.$submitted && (contacts.$invalid || contacts.$pristine))">Заполните телефон, или email</span>
+            </fieldset>
           </div>
         </div>
-      </div>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+              <label for="event_date">Дата: </label>
+              <input type="date" name="event_date" class="form-control"
+                     ng-model="vm.model.eventDate">
+            </div>
+            <div class="form-group">
+              <label for="person_count">Количество персон: </label>
+              <input type="number" name="person_count" class="form-control" min="10" max="1000"
+                     ng-model="vm.model.personCount">
+            </div>
+            <div class="form-group">
+              <label for="comment">Пожелания и комментарии: </label>
+              <textarea name="comment" class="form-control" ng-model="vm.model.comment">
+              </textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Заказать">
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
   </form>
 </div>
