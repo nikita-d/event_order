@@ -12,7 +12,8 @@ module.exports = {
       { test: /\.html$/, loader: 'raw' },
       { test: /\.styl$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader') },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader?limit=10000' }
+      { test: /\.(jpg|png|svg)$/, loader: 'file-loader?name=[name]-[hash].[ext]'},
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader?name=[name]-[hash].[ext]!img' }
     ]
   },
   plugins: [
@@ -34,6 +35,6 @@ module.exports = {
       }
     }),
     // Collect css files
-    new ExtractTextPlugin("[name].css")
+    new ExtractTextPlugin("[name]-[hash].css")
   ]
 };

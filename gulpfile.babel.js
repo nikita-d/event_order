@@ -69,6 +69,10 @@ gulp.task('prodserve', ['webpack'], () => {
   const port = process.env.PORT || 3000;
 
   app.use(serveStatic(__dirname + "/dist"));
+  app.route('/api/order').post(function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ 'success' : true }));
+  });
   app.route('/*').get(function(req, res) {
     return res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });

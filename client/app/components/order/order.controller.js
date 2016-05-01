@@ -1,50 +1,51 @@
 import OrderSender from './order.service';
 
 export default class Order {
-    companyName: '';
-    contactPerson: '';
-    contactEmail: '';
-    contactPhone: '';
-    eventDate: '';
-    personCount: 10;
-
-    constructor() {
-        this.eventDate = new Date();
-    }
+  companyName: '';
+  contactPerson: '';
+  contactEmail: '';
+  contactPhone: '';
+  eventDate: '';
+  personCount: '';
 };
 
 class OrderController {
-    model: {};
-    form: {};
-    orderSender: {};
-    completed: false;
+  model: {};
+  orderSender: {};
+  sending: false;
+  completed: false;
+  error: false;
 
-    constructor($scope, orderSender) {
-        this.name = 'order';
-        this.model = new Order();
-        this.orderSender = orderSender;
-        this.completed = false;
-    }
+  constructor(orderSender) {
+    "ngInject";
+    this.name = 'order';
+    this.model = new Order();
+    this.orderSender = orderSender;
+    this.completed = false;
+  }
 
-    log_model() {
-        console.log(this.model);
-    }
+  log_model() {
+    console.log(this.model);
+  }
 
-    submitOrder(form) {
-        if(form.$valid) {
-            this.postOrder();
-        }
-    }
+  submitOrder(form) {
+    if(form.$valid) { this.postOrder(); }
+  }
 
-    postOrder() {
-        let json = angular.toJson(this.model);
-        this.orderSender
-            .sendData(json)
-            .then(function(res) { log_model(); this.completed = true; },
-                  function(res) { console.log(res) });
-    }
+  postOrder() {
+    this.sending = true;
+    var json = angular.toJson(this.model);
+    var $this = this;
+    this.orderSender
+      .sendData(json)
+      .then(function(res) { $this.log_model();
+                            $this.completed = true;
+                            $this.sending = false;
+                          },
+            function(res) { console.log(res); $this.completed = true; $this.sending = false; });
+  }
 }
 
-OrderController.$inject = ['$scope', 'orderSender'];
+OrderController.$inject = ['orderSender'];
 
 export default OrderController;
