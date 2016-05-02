@@ -1,79 +1,84 @@
-<navbar>
+<navbar class="container">
 </navbar>
-<section class="container" id="sectionOrder">
+<section class="container">
   <div class="container" ng-show="vm.completed === false">
-    <div class="row">
-      <div class="order-form__title-text col-md-10 col-md-offset-1">
-        <h1>Форма отправки заказа</h1>
-        <p>Воспользуйтесь формой ниже чтобы заказать мероприятие. Наш менеджер
-          свяжется с вами в ближайшее время.</p>
-      </div>
-      <div class="order-form__form col-md-10 col-md-offset-1">
-        <form name="orderForm" class="form-horizontal" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
-          <div class="row">
-            <div class="col-md-4 col-md-offset-2">
-              <div class="form-group" ng-class="{ 'has-error' : (!orderForm.company_name.$pristine && orderForm.company_name.$invalid) }">
-                <label for="company_name">Название компании: </label>
-                <input type="text" name="company_name" class="form-control"
-                       ng-model="vm.model.companyName"
-                       ng-required="true">
+    <div class="order-form__title-text container">
+      <h1>Форма отправки заказа</h1>
+      <p>Воспользуйтесь формой ниже чтобы заказать мероприятие. Наш менеджер
+        свяжется с вами в ближайшее время.</p>
+    </div>
+    <div class="order-form__form container">
+      <form name="orderForm" class="form-horizontal" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-1">
+            <div class="form-group" ng-class="{ 'has-error' : (!orderForm.company_name.$pristine && orderForm.company_name.$invalid), 'has-warning' : orderForm.company_name.$pristine }">
+              <label for="company_name">Название компании: </label>
+              <input type="text" name="company_name" class="form-control"
+                     ng-model="vm.model.companyName"
+                     ng-required="true">
+              <div class="bg-danger" ng-show="orderForm.company_name.$invalid">
                 <span ng-show="(!orderForm.company_name.$pristine && orderForm.company_name.$error.required)">Заполните это поле</span>
               </div>
-              <div class="form-group" ng-class="{ 'has-error' : (!orderForm.email.$pristine && orderForm.email.$invalid) }">
-                <label for="email">Email: </label>
-                <input type="email" name="email" class="form-control"
-                       ng-model="vm.model.contactEmail"
-                       ng-required="true">
-                <span ng-show="(!orderForm.email.$pristine && orderForm.email.$error.required)">required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : (!orderForm.email.$pristine && orderForm.email.$invalid), 'has-warning' : orderForm.email.$pristine }">
+              <label for="email">Email: </label>
+              <input type="email" name="email" class="form-control"
+                     ng-model="vm.model.contactEmail"
+                     ng-required="true">
+              <div class="bg-danger" ng-show="orderForm.email.$invalid">
+                <span ng-show="(!orderForm.email.$pristine && orderForm.email.$error.required)">Заполните это поле</span>
                 <span ng-show="(!orderForm.email.$pristine && orderForm.email.$error.email)">Неправильный формат</span>
-              </div>
-
-            </div>
-            <div class="col-md-4">
-              <div class="form-group" ng-class="{ 'has-error' : (!orderForm.contact_person.$pristine && orderForm.contact_person.$invalid) }">
-                <label for="contact_person">Контактное лицо: </label>
-                <input type="text" name="contact_person" class="form-control"
-                       ng-model="vm.model.contactPerson"
-                       ng-required="true">
-                <span ng-show="(!orderForm.contact_person.$pristine && orderForm.contact_person.$error.required)">Заполните это поле</span>
-              </div>
-              <div class="form-group" ng-class="{ 'has-error' : (!orderForm.phone.$pristine && orderForm.phone.$invalid) }">
-                <label for="phone">Телефон: </label>
-                <input type="text" name="phone" class="form-control"
-                       ng-model="vm.model.contactPhone"
-                       ng-pattern="/^\+[0-9]+\s*\([0-9]+\)\s*[0-9][0-9\-]+$/">
-                <span ng-show="(!orderForm.phone.$pristine && orderForm.phone.$error.required)">required</span>
-                <span ng-show="(!orderForm.phone.$pristine && orderForm.phone.$error.pattern)">Неправильный формат</span>
-              </div>
-            </div>
-            <div class="col-md-8 col-md-offset-2">
-              <div class="form-group">
-                <label for="event_date">Дата: </label>
-                <input type="date" name="event_date" class="form-control" date-format="dd.mm.yyyy"
-                       ng-model="vm.model.eventDate">
-              </div>
-              <div class="form-group">
-                <label for="person_count">Количество персон: </label>
-                <input type="number" name="person_count" class="form-control" min="10" max="1000"
-                       ng-model="vm.model.personCount">
-              </div>
-              <div class="form-group">
-                <label for="comment">Комментарии к заказу: </label>
-                <textarea name="comment" class="form-control" ng-model="vm.model.comment">
-                </textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-primary" ng-disabled="(orderForm.$invalid || vm.sending)" value="Заказать">
               </div>
             </div>
           </div>
-        </form>
-      </div>
+          <div class="col-md-4 col-md-offset-1">
+            <div class="form-group" ng-class="{ 'has-error' : (!orderForm.contact_person.$pristine && orderForm.contact_person.$invalid), 'has-warning' : orderForm.contact_person.$pristine }">
+              <label for="contact_person">Контактное лицо: </label>
+              <input type="text" name="contact_person" class="form-control"
+                     ng-model="vm.model.contactPerson"
+                     ng-required="true">
+              <div class="bg-danger" ng-show="orderForm.contact_person.$invalid">
+                <span ng-show="(!orderForm.contact_person.$pristine && orderForm.contact_person.$error.required)">Заполните это поле</span>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : (!orderForm.phone.$pristine && orderForm.phone.$invalid) }">
+              <label for="phone">Телефон: </label>
+              <input type="text" name="phone" class="form-control"
+                     ng-model="vm.model.contactPhone"
+                     ng-pattern="/^\+[0-9]+\s*\([0-9]+\)\s*[0-9][0-9\-]+$/">
+              <div class="bg-danger" ng-show="orderForm.phone.$invalid">
+                <span ng-show="(!orderForm.phone.$pristine && orderForm.phone.$error.pattern)">Неправильный формат</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9 col-md-offset-1">
+            <div class="form-group">
+              <label for="event_date">Дата: </label>
+              <input type="date" name="event_date" class="form-control"
+                     ng-model="vm.model.eventDate">
+            </div>
+            <div class="form-group">
+              <label for="person_count">Количество персон: </label>
+              <input type="number" name="person_count" class="form-control" min="10" max="1000"
+                     ng-model="vm.model.personCount">
+            </div>
+            <div class="form-group">
+              <label for="comment">Комментарии к заказу: </label>
+              <textarea name="comment" class="form-control" ng-model="vm.model.comment">
+              </textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" ng-disabled="(orderForm.$invalid || vm.sending)" value="Заказать">
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
   <div class="container" ng-show="vm.completed === true">
     <h1>Отправлено</h1>
+    <p>Ожидайте, наш менеджер скоро выйдет на связь</p>
   </div>
 </section>
-<footer>
-</footer>

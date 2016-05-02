@@ -1,8 +1,8 @@
 import angular from 'angular';
-import 'bootstrap/dist/css/bootstrap.css';
 import uiBootstrap from 'angular-ui-bootstrap';
 import uiRouter from 'angular-ui-router';
 import Common from './common/common';
+import 'bootstrap/dist/css/bootstrap.css';
 import Components from './components/components';
 import AppComponent from './app.component';
 
