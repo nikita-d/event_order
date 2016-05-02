@@ -2,6 +2,16 @@
 </navbar>
 <section class="container">
   <div class="container">
+    <div class="carousel-outer container">
+      <uib-carousel active="active" interval="vm.interval" class="carousel container" no-wrap="false">
+        <uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id" class='carousel-slide'>
+          <img ng-src="{{slide.src}}" style="margin: auto;">
+          <div class="carousel-caption">
+            <h3>{{slide.title}}</h3>
+          </div>
+        </uib-slide>
+      </uib-carousel>
+    </div>
     <h1>Lorem Ipsum</h1>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate orci sit amet dui ullamcorper vulputate. Ut at leo eleifend, imperdiet tellus ac, dictum odio. Mauris sagittis tincidunt metus ac cursus. Sed efficitur semper risus, eu malesuada ante elementum et. Curabitur egestas ultrices maximus. Nulla fermentum sem id dolor volutpat, eget tempor neque semper. Nam aliquam neque at mattis consectetur.</p>
@@ -13,5 +23,6 @@
     <p>Nam quis tempor sapien. Vestibulum ac diam ac lorem auctor bibendum non sit amet ligula. Duis a nisl sit amet massa imperdiet venenatis. Sed tincidunt eget tortor fringilla volutpat. Ut eget libero id sem finibus eleifend vitae sit amet sapien. Morbi placerat euismod nisi, nec porta dui bibendum eu. Ut vestibulum, felis tempor blandit iaculis, erat turpis vulputate eros, eget sagittis neque tortor eu quam. Quisque molestie sapien quis urna bibendum, quis ullamcorper erat efficitur.</p>
 
     <p>Maecenas at quam ornare nibh gravida eleifend vel nec arcu. Morbi condimentum rhoncus volutpat. Ut id feugiat metus, vel varius lorem. Ut porttitor turpis molestie, aliquam mi eu, posuere massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque sit amet nisl nisl. Aenean at lobortis nulla. Morbi erat odio, vulputate et enim nec, blandit lobortis mi. Pellentesque ex nisi, dignissim nec velit nec, gravida dignissim nulla. Maecenas tincidunt viverra efficitur. Nunc facilisis tortor at blandit tincidunt. Nunc feugiat sem id nulla auctor tincidunt. Nunc eu dui a turpis ullamcorper rhoncus. Etiam quis sapien sodales, faucibus orci eget, molestie orci. Morbi mattis vel diam ut rhoncus.</p>
+
   </div>
 </section>

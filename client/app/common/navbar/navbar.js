@@ -5,7 +5,6 @@ import navbarComponent from './navbar.component';
 let navbarModule = angular.module('navbar', [
   uiRouter
 ])
-
 .component('navbar', navbarComponent);
 
 export default navbarModule;
