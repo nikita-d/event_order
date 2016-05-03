@@ -2,9 +2,8 @@
 </navbar>
 <section id="sectionHome">
   <div class="container">
-    <h1>Lorem Ipsum</h1>
     <div class="carousel-outer">
-      <uib-carousel active="active" interval="vm.interval" class="carousel container" no-wrap="false">
+      <uib-carousel active="active" interval="vm.interval" class="carousel" no-wrap="false">
         <uib-slide class="carousel-slide" style="background-image: url({{slide.src}})"
                    ng-repeat="slide in vm.slides track by slide.id"
                    index="slide.id">
@@ -14,6 +13,7 @@
         </uib-slide>
       </uib-carousel>
     </div>
+    <h1>Lorem Ipsum</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate orci sit amet dui ullamcorper vulputate. Ut at leo eleifend, imperdiet tellus ac, dictum odio. Mauris sagittis tincidunt metus ac cursus. Sed efficitur semper risus, eu malesuada ante elementum et. Curabitur egestas ultrices maximus. Nulla fermentum sem id dolor volutpat, eget tempor neque semper. Nam aliquam neque at mattis consectetur.</p>
 
     <p>Cras molestie tincidunt magna, vel rhoncus felis. Sed convallis eros dui. In vel metus est. Praesent maximus magna et metus aliquam pharetra. Proin id est eu metus luctus aliquet. Donec tincidunt maximus urna, at accumsan magna consectetur ut. Morbi eu malesuada libero. Morbi feugiat nunc arcu, nec cursus felis malesuada et.</p>
