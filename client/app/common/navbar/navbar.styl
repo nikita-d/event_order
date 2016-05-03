@@ -1,7 +1,10 @@
 .navbar
   background-color $primaryColor
   margin auto
+  width 60%
+  height 120px
   .logo
+    width 65%
     display inline-block
     color $lightTextColor
     margin-right 50px
@@ -15,25 +18,29 @@
        font-size 2.0rem
        font-weight bold
   .nav-links
-    span
-      color $lightTextColor
-      font-size 1.6rem
-      margin-right 50px
+    display inline
+
 
 @media screen and (max-width: 767px)
   .navbar
-    margin auto
+    display inline-block
+    width 100%
+    height 80px
     .logo
-      margin-right 25px
+      width auto
+      display inline-block
+      padding-top 13px
+      margin-right 0
       .logo-title
-        display inline-block
-        min-height 109px
+        display block
+        min-height 54px
         padding-left 108px
-        background-image url("../../logo.png")
+        background-image url("../../logo-mobile.png")
         background-repeat no-repeat
         font-size 2.0rem
+        span
+          display none
     .nav-links
-      span
-        margin-right 20px
-      span:first-child
-        margin-left 20px
+      float right
+      padding-top 22px
+
