@@ -12,7 +12,7 @@ module.exports = {
       { test: /\.html$/, loader: 'raw' },
       { test: /\.styl$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader?resolve url') },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-      { test: /\.(jpg|png|svg)$/, loader: 'file-loader?name=[name]-[hash].[ext]'},
+      { test: /\.(jpg|png|svg)$/, loader: 'url-loader?name=[name]-[hash].[ext]'},
       { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader?name=[name]-[hash].[ext]!img' }
     ]
   },

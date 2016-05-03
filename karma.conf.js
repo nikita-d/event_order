@@ -32,8 +32,10 @@ module.exports = function (config) {
         loaders: [
           { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel' },
           { test: /\.html/, loader: 'raw' },
-          { test: /\.styl$/, loader: 'style!css!stylus' },
-          { test: /\.css$/, loader: 'style!css' }
+          { test: /\.styl$/, loader: 'style!css!stylus?resolve url' },
+          { test: /\.css$/, loader: 'style!css' },
+          { test: /\.(jpg|png|svg)$/, loader: 'url-loader?name=[name]-[hash].[ext]'},
+          { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader?name=[name]-[hash].[ext]!img' }
         ]
       }
     },
