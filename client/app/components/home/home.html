@@ -1,8 +1,8 @@
-<navbar class="container">
+<navbar>
 </navbar>
-<section class="container">
+<section id="sectionHome">
   <div class="container">
-    <div class="carousel-outer container">
+    <div class="carousel-outer">
       <uib-carousel active="active" interval="vm.interval" class="carousel container" no-wrap="false">
         <uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id" class='carousel-slide'>
           <img ng-src="{{slide.src}}" style="margin: auto;">

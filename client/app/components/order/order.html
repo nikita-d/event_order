@@ -1,13 +1,11 @@
-<navbar class="container">
+<navbar>
 </navbar>
-<section class="container">
+<section id="sectionOrder">
   <div class="container">
-    <div class="order-form__title-text container">
-      <h1>Форма отправки заказа</h1>
-      <p>Воспользуйтесь формой ниже чтобы заказать мероприятие. Наш менеджер
-        свяжется с вами в ближайшее время.</p>
-    </div>
-    <div class="order-form__form container">
+    <h1>Форма отправки заказа</h1>
+    <p>Воспользуйтесь формой ниже чтобы заказать мероприятие. Наш менеджер
+      свяжется с вами в ближайшее время.</p>
+    <div class="order-form__form">
       <form name="orderForm" class="form-horizontal" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
         <div class="row">
           <div class="col-md-4 col-md-offset-1">
@@ -75,6 +73,6 @@
           </div>
         </div>
       </form>
-    </div>
-  </div>
+      <div>
+      </div>
 </section>
