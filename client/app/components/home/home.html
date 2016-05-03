@@ -4,8 +4,9 @@
   <div class="container">
     <div class="carousel-outer">
       <uib-carousel active="active" interval="vm.interval" class="carousel container" no-wrap="false">
-        <uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id" class='carousel-slide'>
-          <img ng-src="{{slide.src}}" style="margin: auto;">
+        <uib-slide class="carousel-slide" style="background-image: url({{slide.src}})"
+                   ng-repeat="slide in vm.slides track by slide.id"
+                   index="slide.id">
           <div class="carousel-caption">
             <h3>{{slide.title}}</h3>
           </div>

@@ -10,11 +10,14 @@ module.exports = {
     loaders: [
       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
       { test: /\.html$/, loader: 'raw' },
-      { test: /\.styl$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader') },
+      { test: /\.styl$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader?resolve url') },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
       { test: /\.(jpg|png|svg)$/, loader: 'file-loader?name=[name]-[hash].[ext]'},
       { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader?name=[name]-[hash].[ext]!img' }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.styl']
   },
   plugins: [
     // Injects bundles in your index.html instead of wiring all manually.
