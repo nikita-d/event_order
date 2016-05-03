@@ -20,7 +20,7 @@
             </div>
             <div class="form-group" ng-class="{ 'has-error' : (!orderForm.email.$pristine && orderForm.email.$invalid), 'has-warning' : orderForm.email.$pristine }">
               <label for="email">Email: </label>
-              <input type="email" name="email" class="form-control"
+              <input type="email" name="email" class="form-control" placeholder="user@example.net"
                      ng-model="vm.model.contactEmail"
                      ng-required="true">
               <div class="bg-danger" ng-show="orderForm.email.$invalid">
@@ -42,6 +42,7 @@
             <div class="form-group" ng-class="{ 'has-error' : (!orderForm.phone.$pristine && orderForm.phone.$invalid) }">
               <label for="phone">Телефон: </label>
               <input type="text" name="phone" class="form-control"
+                     placeholder="+1 (234) 567-89-00"
                      ng-model="vm.model.contactPhone"
                      ng-pattern="/^\+[0-9]+\s*\([0-9]+\)\s*[0-9][0-9\-]+$/">
               <div class="bg-danger" ng-show="orderForm.phone.$invalid">
