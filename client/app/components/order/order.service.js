@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 class OrderSender {
-    $http: {};
+    $http;
 
     constructor($http) {
         "ngInject";
@@ -12,7 +12,7 @@ class OrderSender {
         return this.$http
                    .post('/api/order', data)
     }
-};
+}
 OrderSender.$inject = ['$http'];
 
 export default OrderSender

@@ -12,7 +12,7 @@ export default class Order {
 };
 
 class ModalInstanceController {
-  modalInstance : {};
+  modalInstance;
 
   constructor($uibModalInstance) {
     this.modalInstance = $uibModalInstance;

@@ -6,9 +6,9 @@
     <p>Воспользуйтесь формой ниже чтобы заказать мероприятие. Наш менеджер
       свяжется с вами в ближайшее время.</p>
     <div class="order-form__form">
-      <form name="orderForm" class="form-horizontal" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
+      <form name="orderForm" ng-submit="vm.submitOrder(orderForm)" novalidate="true">
         <div class="row">
-          <div class="col-md-4 col-md-offset-1">
+          <div class="col-md-4 col-md-offset-2">
             <div class="form-group" ng-class="{ 'has-error' : (!orderForm.company_name.$pristine && orderForm.company_name.$invalid), 'has-warning' : orderForm.company_name.$pristine }">
               <label for="company_name">Название компании: </label>
               <input type="text" name="company_name" class="form-control"
@@ -29,7 +29,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-md-offset-1">
+          <div class="col-md-4">
             <div class="form-group" ng-class="{ 'has-error' : (!orderForm.contact_person.$pristine && orderForm.contact_person.$invalid), 'has-warning' : orderForm.contact_person.$pristine }">
               <label for="contact_person">Контактное лицо: </label>
               <input type="text" name="contact_person" class="form-control"
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-9 col-md-offset-1">
+          <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
               <label for="event_date">Дата: </label>
               <input type="date" name="event_date" class="form-control"
